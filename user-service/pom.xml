@@ -14,7 +14,7 @@
 
 
     <dependencies>
-
+<!--This dependency is our app-domain-model projecst's dependency. We add this dependency to the other project like this and import it to use like the other libraries. In this project we assemble all the dto and entities in one this domain model project and use from there.-->
         <dependency>
             <groupId>com.cydeo</groupId>
             <artifactId>app-domain-model</artifactId>

@@ -6,6 +6,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+//We create this service/project for the consuming operations. All the consuming operations will be done from one place which is this service
 @FeignClient(value = "user-service",url = "http://localhost:9090")
 public interface UserClientService {
 

@@ -2,6 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<!--With this parent section we define that this pom is child of a parent pom and that parent pom's information is here. But his doesn't mean that this pom will inherit all the dependencies that parent has. At his pom's dependencies section we define dependencies again but we don't add the version line. By this method this pom has the dependencies that we define inside of it but the version is defined by the parent pom-->
     <parent>
         <artifactId>ticketing_project_microservices</artifactId>
         <groupId>com.cydeo</groupId>

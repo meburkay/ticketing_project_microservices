@@ -3,6 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!--This line defines that this pom.xml is a template and we will not create a jar from this. This pom will be parent pom for the other projects and added to them. By this way we manage the dependencies from one place easily. Normally instead of pom there must be jar. And in default it is jar. Because of that in normal pom files we do not need to write this line.-->
     <packaging>pom</packaging>
 
 
@@ -29,6 +30,7 @@
     <name>ticketing-project-microservices</name>
     <description>ticketing-project-microservices</description>
 
+    <!--We create here all the necessary properties with their versions. And we use their names with ${} at the dependencies without versions. We can manage the version of the dependencies from one place here.-->
     <properties>
         <java.version>11</java.version>
         <spring-boot.version>2.3.4.RELEASE</spring-boot.version>
@@ -38,6 +40,7 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
     </properties>
 
+    <!--    Different from the other poms we have a title as dependencyManagement for the management of the dependencies.-->
     <dependencyManagement>
 
         <dependencies>
