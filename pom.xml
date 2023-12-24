@@ -123,6 +123,7 @@
                 </configuration>
             </plugin>
         </plugins>
+<!--        The plugin below is a springframework maven plugin. We add the same plugin to the services pom too but added some configuration to them. And by this way the docker images of the services are automatically created.-->
         <pluginManagement>
             <plugins>
                 <plugin>
