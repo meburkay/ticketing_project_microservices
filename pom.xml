@@ -15,6 +15,7 @@
         <module>project-service</module>
         <module>task-service</module>
         <module>app-client-management</module>
+        <module>discovery-service</module>
     </modules>
 
     <parent>
@@ -107,6 +108,18 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
+            </dependency>
+<!--We add eureka server dependency here. It is a spring cloud dependency. This dependency is creating a server. We will use this dependency at discovery-service. Every service and their instances will register to discovery-service by this dependency discovery service will handle the operation.-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+<!--This is used for taking health information from our app. The cpu usage etc. This gives these informations by a xml file. Springcloud gives us a tool as grafana and it connect to this dependency and give us the information more clearly with charts etc.-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+                <version>${spring-boot.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
