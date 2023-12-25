@@ -115,6 +115,12 @@
                 <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
+<!--            this pom is for the services that will register to eureka server. With this pom the clients/services will register to the eureka server. -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
 <!--This is used for taking health information from our app. The cpu usage etc. This gives these informations by a xml file. Springcloud gives us a tool as grafana and it connect to this dependency and give us the information more clearly with charts etc.-->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
