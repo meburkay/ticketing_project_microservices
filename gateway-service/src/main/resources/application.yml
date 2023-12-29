@@ -29,6 +29,12 @@ spring:
           filters:
             - RewritePath=/cydeo/dev/task/(?<segment>.*),/$\{segment}
 
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://host.docker.internal:9411
+
 #This is the main port for gateway that will be used for all the requests
 server:
   port: 8762
