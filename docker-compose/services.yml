@@ -83,6 +83,29 @@ services:
       - "9411:9411"
     networks:
       - backend
+#We put these two for creating images from them. Actually grafana is a tool. It doesn't have dependency. We create an image of it and use at as a tool. Here we arrange the configurations for the image of it.
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9093:9093"
+#Here at the volumes part we define an yml file and its address. We create that yml file there and use it. In that file we define the endpoints for prometheus to gather the necessary information.
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    container_name: prometheus
+    networks:
+      - backend
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=abc1
+    depends_on:
+      - prometheus
+    networks:
+      - backend
 
 networks:
   backend:
