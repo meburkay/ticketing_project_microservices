@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+#    native means I will take the configuraion information from my file system. In the future we make this git.
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+
+server:
+  port: 8888
