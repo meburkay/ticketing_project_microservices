@@ -2,13 +2,20 @@ spring:
   application:
     name: config-server
   profiles:
-#    native means I will take the configuraion information from my file system. In the future we make this git.
-    active: native
+#    We create a git repo at github and move our config files to there and change here to git for using github. And make the necessary configuration below at the cloud part.
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/config
+        git:
+#          this is the git url that we create repository
+          uri: https://github.com/meburkay/ticketing-project-microservices-config
+#          this is the branch name. spring use main as a default and when the names did not match it gives error. Becauese of that we define here the branch name as master. Because github use master as a default branch name. If we create a new branch etc. we must update here too.
+          default-label: main
+          username: meburkay
+#          We create token at github and use here as a password.
+          password: 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
+      fail-fast: true
 
 server:
   port: 8888
